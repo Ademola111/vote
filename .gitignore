@@ -1,0 +1,6 @@
+instance/
+/*nacos.sql
+myroutes/__pycache__
+.vscode/
+__pycache__/
+vvote/

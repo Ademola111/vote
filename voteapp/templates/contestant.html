@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+NACOS NOUN | Contestant Page
+{% endblock %}
+
+{% block content %}
+<div class="contaimer-flu">
+    <div class="row">
+        <div class="col-md-12">
+            {% with m = get_flashed_messages() %}
+                {% for i in m %}
+                <p class="fw-4">{{i}}</p>
+                {% endfor %}
+            {% endwith %}
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h4 style="text-align:center; color:green;">Contestant Form</h4>
+            <form action="{{url_for('contestant')}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                <input type="text" name="const_name" placeholder="Fullname" class="form-control mt-3 mb-3" required>
+                <input type="text" name="nacosid" placeholder="NACOS ID" class="form-control mt-3 mb-3" required>
+                <input type="text" name="studycent" placeholder="Study Center e.g Ibadan Study Center" class="form-control mt-3 mb-3" required>
+                <input type="text" name="level" placeholder="Level e.g 200L" class="form-control mt-3 mb-3" required>
+                <select name="post" class="form-control mt-3 mb-3" required>
+                    <option value="none">Select Interested Position</option>
+                    <option value="president">Chapter President</option>
+                    <option value="vp">Chapter Vice President</option>
+                    <option value="vp special duties">Chapter Vice President (Special Duties)</option>
+                    <option value="software director r&i">Chapter Software Director (Research & Innovation)</option>  
+                    <option value="developers lead">Chapter Developers Lead</option>
+                    <option value="gen sec">Chapter General Secretary</option>
+                    <option value="fin sec">Chapter Financial Secretary/Treasurer</option>
+                    <option value="pro1">Chapter Public Relation Officer I (Male)</option>
+                    <option value="pro2">Chapter Public Relation Officer II (Female)</option>
+                    <option value="welfare director">Chapter Welfare Director</option>
+                    <option value="social director">Chapter Social Director</option>
+                    <option value="sport director">Chapter Sport Director</option>
+                                      
+                </select>
+                <select name="dept" class="form-control mt-3 mb-3" required>
+                    <option value="none">Select Department</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="cse">Computer Science Education</option>
+                    <option value="csm">Computer Science and Mathematics</option>
+                    <option value="it">Information Technology</option>                    
+                </select>
+                <label>Passport</label>
+                <span style="font-size:xx-small; color:red">[Accept jpg, gif, png files.]</span>
+                <input type="file" name="pic" class="mt-3 mb-3 form-control" required>
+                <label>Membership Certificate</label>
+                <span style="font-size:xx-small; color:red">[Accept jpg, gif, png files.]</span>
+                <input type="file" name="member" class="mt-3 mb-3 form-control" required>
+                <label>Nomination Form</label>
+                <span style="font-size:xx-small; color:red">[Accept jpg, gif, png files.]</span>
+                <input type="file" name="nomination" class="mt-3 mb-3 form-control" required>
+                
+                <button type="submit" class="btn btn-success mt-3 mb-3 form-control">Submit</button>                                
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel='stylesheet'>
+    
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container-fluid bg-success ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center text-light mt-3 mb-3" id="res">
+                    <a href='www.nacosnoun.com.ng'><img src="/static/images/nacoslogo.png" alt="nacosnounlogo" width="250" class="img img-fluid rounded"></a>
+                    <h1>Welcome to Nacos Noun Electoral Commission</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+    <div class="container-fluid bg-dark mt-3 mb-3">
+        <div class="row">
+            <div class="col-md-3 text-light"></div>
+            <div class="col-md-3 text-light"></div>
+            <div class="col-md-3 text-light"></div>
+            <div class="col-md-3 text-light"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-light mt-3 mb-3 text-center">
+                <span>NACOS NOUN &copy 2022</span>
+                <span class="text-light text-right mt-3 mb-3" style="font-size:xx-small;"> Designed by AdemolaCode</span>
+                {% if session.get('admin') != None %}
+                <a href="{{url_for('logout')}}" style="text-decoration:none; font-size:medium;"><span class="mt-3 mb-3 text-light" style="position: absolute; right:0px">Admin Logout</span></a>
+                {% else %}
+                <a href="{{url_for('adminlogin')}}" style="text-decoration:none; font-size:medium;"><span class="mt-3 mb-3 text-light" style="position: absolute; right:0px">Admin</span></a>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+<script src="{{url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+<script>
+
+</script>
+</body>
+</html>

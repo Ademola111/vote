@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <p class="mt-3 mb-3"><a href="{{url_for('home')}}" style="text-decoration:none; font-size:medium"><span class="btn btn-dark text-light">Home</span></a></p>
+        <div class="col-md-12 text-center">
+            <h1>Welcome! {{vtnaid.na_studentname}}</h1>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    {% with m = get_flashed_messages() %}
+                        {% for i in m %}
+                        <p class="fw-4">{{i}}</p>
+                        {% endfor %}
+                    {% endwith %}
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 p-3 m-3">
+                    <h5 class="text-center">It's Election Day! Vote right</h5>
+                    <form action="{{url_for('voting')}}" method="POST">
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">President Section</span></p>
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}" class="form-control">
+                            <input type="hidden" name="post1" value="president" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat1" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'president' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Vice President Section</span></p>
+                            <input type="hidden" name="post2" value="vice president" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat2" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'vp' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Vice President (Special Duties) Section</span></p>
+                            <input type="hidden" name="post3" value="vice president special duties" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat3" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'vp special duties' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">General Secretary Section</span></p>
+                            <input type="hidden" name="post4" value="general secretary" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat4" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'gen sec' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Financial Secretary Section</span></p>
+                            <input type="hidden" name="post5" value="financial secretary" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat5" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'fin sec' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">PRO I Section</span></p>
+                            <input type="hidden" name="post6" value="pro1" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat6" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'pro1' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">PRO II Section</span></p>
+                            <input type="hidden" name="post7" value="pro2" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat7" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'pro2' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Software Director (Research & Innovation) Section</span></p>
+                            <input type="hidden" name="post8" value="software director r&i" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat8" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'software director r&i' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Developers Lead Section</span></p>
+                            <input type="hidden" name="post9" value="developers lead" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat9" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'developers lead' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Welfare Director Section</span></p>
+                            <input type="hidden" name="post10" value="welfare director" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat10" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'welfare director' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-light m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Social Director Section</span></p>
+                            <input type="hidden" name="post11" value="social director" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat11" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'social director' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div class="col-md-12 bg-primary m-3 p-3">
+                            <p class="text-center"><span class="text-center text-light bg-dark m-2 p-2 rounded-pill">Sport Director Section</span></p>
+                            <input type="hidden" name="post12" value="sport director" class="form-control">
+                            <label class="mt-3">Contestant Name</label>
+                            <select name="votecat12" class="form-control mt-3 mb-3">
+                                <option value="none">Select Contestant Name</option>
+                                {% for pre in presi %}
+                                {% if pre.cont_post == 'sport director' %}
+                                <option value="{{pre.cont_id}}">{{pre.cont_name}}</option>
+                                {% endif %}
+                                {% endfor %}                   
+                            </select>
+                        </div>
+                        <div  class="col-md-12 m-3 p-3">
+                        <button type="submit" class="form-control btn btn-outline-success mt-3 mb-3">Vote</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

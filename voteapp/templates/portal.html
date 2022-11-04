@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Student Portal | NACOS NOUN
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {% with m = get_flashed_messages() %}
+                {% for i in m %}
+                    <p class="fw-4 text-center">{{i}}</p>
+                {% endfor %}
+            {% endwith %}
+        </div>
+    </div>
+    <div class="row">
+        <h5 class="mt-3 mb-3 text-center">Voter's Portal</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="{{url_for('portal')}}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}" class="form-control mt-3 mb-3">
+                <input type="text" name="nacosname" placeholder="Fullname" class="form-control mt-3 mb-3">
+                <input type="text" name="nacosid" placeholder="NACOS ID" class="form-control mt-3 mb-3">
+                <input type="text" name="center" placeholder="Study Center e.g McCarthy" class="form-control mt-3 mb-3">
+                <button type="submit" class="btn btn-success mt-3 mb-3 form-control">Add Voter</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}

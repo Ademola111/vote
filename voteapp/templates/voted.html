@@ -1,0 +1,870 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Voted | Nacos Noun
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <p class="mt-3 mb-3"><a href="{{url_for('home')}}" style="text-decoration:none; font-size:medium"><span class="btn btn-dark text-light">Home</span></a></p>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h3 class="text-center bg-dark text-light rounded-pill">Election Results</h3>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% with m = get_flashed_messages() %}
+                {% for i in m %}
+                    <p class="fw-4 text-center">{{i}}</p>
+                {% endfor %}
+            {% endwith %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <!-- Fin Sec results -->
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> Financial Secretary Results</h3></div>
+                    <!-- candidate 1 - Fin Secretary candidate -->
+                    <div class="row mb-3">
+                        {% for vo6 in nov6[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo6.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo6.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo6.contobj.cont_name}}</p>
+                            <p>{{vo6.vt_category}}</p>
+                            <p>{{vo6.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov6|length > 1 %}
+                            <p>{{nov6|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov6|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - Fin Secretary candidate -->
+                    <div class="row">
+                        {% for vo6i in nov6i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo6i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo6i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo6i.contobj.cont_name}}</p>
+                            <p>{{vo6i.vt_category}}</p>
+                            <p>{{vo6i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov6i|length > 1 %}
+                            <p>{{nov6i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov6i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - Fin Secretary candidate -->
+                    <div class="row">
+                        {% for vo6ii in nov6ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo6ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo6ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo6ii.contobj.cont_name}}</p>
+                            <p>{{vo6ii.vt_category}}</p>
+                            <p>{{vo6ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov6ii|length > 1 %}
+                            <p>{{nov6ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov6ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- PRO I results -->
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-success text-light rounded-pill"> PRO I (Male) Results</h3></div>
+                    <!-- candidate 1 - PRO I candidate -->
+                    <div class="row mb-3">
+                        {% for vo7 in nov7[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo7.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo7.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo7.contobj.cont_name}}</p>
+                            {% if vo7.vt_category=='pro1'  %}
+                            <p>PRO I</p>
+                            {% endif %}
+                            <p>{{vo7.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov7|length > 1 %}
+                            <p>{{nov7|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov7|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - PRO I candidate -->
+                    <div class="row">
+                        {% for vo7i in nov7i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo7i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo7i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo7i.contobj.cont_name}}</p>
+                            {% if vo7i.vt_category=='pro1'  %}
+                            <p>PRO I</p>
+                            {% endif %}
+                            <p>{{vo7i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov7i|length > 1 %}
+                            <p>{{nov7i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov7i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - PRO I candidate -->
+                    <div class="row">
+                        {% for vo7ii in nov7ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo7ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo7ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo7ii.contobj.cont_name}}</p>
+                            {% if vo7ii.vt_category=='pro1'  %}
+                            <p>PRO I</p>
+                            {% endif %}
+                            <p>{{vo7ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov7ii|length > 1 %}
+                            <p>{{nov7ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov7ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- PRO II results -->
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> PRO II (Female) Results</h3></div>
+                    <!-- candidate 1 - PRO II candidate -->
+                    <div class="row mb-3">
+                        {% for vo8 in nov8[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo8.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo8.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo8.contobj.cont_name}}</p>
+                            {% if vo8.vt_category=='pro2'  %}
+                            <p>PRO II</p>
+                            {% endif %}                            
+                            <p>{{vo8.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov8|length > 1 %}
+                            <p>{{nov8|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov8|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - PRO II candidate -->
+                    <div class="row">
+                        {% for vo8i in nov8i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo8i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo8i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo8i.contobj.cont_name}}</p>
+                            {% if vo8i.vt_category=='pro2'  %}
+                            <p>PRO II</p>
+                            {% endif %}                            
+                            <p>{{vo8i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov8i|length > 1 %}
+                            <p>{{nov8i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov8i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - PRO II candidate -->
+                    <div class="row">
+                        {% for vo8ii in nov8ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo8ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo8ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo8ii.contobj.cont_name}}</p>
+                            {% if vo8ii.vt_category=='pro2'  %}
+                            <p>PRO II</p>
+                            {% endif %}                            
+                            <p>{{vo8ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov8ii|length > 1 %}
+                            <p>{{nov8ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov8ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Software director results -->
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-success text-light rounded-pill"> Software Director Results</h3></div>
+                    <!-- candidate 1 - software director candidate -->
+                    <div class="row mb-3">
+                        {% for vo9 in nov9[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo9.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo9.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo9.contobj.cont_name}}</p>
+                            {% if vo9.vt_category=='software director r&i'  %}
+                            <p>Software Director (Research and Innovation)</p>
+                            {% endif %}                            
+                            <p>{{vo9.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov9|length > 1 %}
+                            <p>{{nov9|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov9|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - software director candidate -->
+                    <div class="row">
+                        {% for vo9i in nov9i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo9i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo9i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo9i.contobj.cont_name}}</p>
+                            {% if vo9i.vt_category=='software director r&i'  %}
+                            <p>Software Director (Research and Innovation)</p>
+                            {% endif %}                            
+                            <p>{{vo9i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov9i|length > 1 %}
+                            <p>{{nov9i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov9i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - software director candidate -->
+                    <div class="row">
+                        {% for vo9ii in nov9ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo9ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo9ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo9ii.contobj.cont_name}}</p>
+                            {% if vo9ii.vt_category=='software director r&i'  %}
+                            <p>Software Director (Research and Innovation)</p>
+                            {% endif %}                            
+                            <p>{{vo9ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov9ii|length > 1 %}
+                            <p>{{nov9ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov9ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- president results -->
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-3 text-center">
+                    <h3 class="text-center bg-success text-light rounded-pill">Presidential Results</h3>
+                </div>
+                <!-- candidate 1 - presidental candidate -->
+                <div class="row mb-3">
+                    {% for vo in nov[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo.contobj.cont_name}}</p>
+                        <p>{{vo.vt_category}}</p>
+                        <p>{{vo.contobj.cont_studycenter}}</p>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov|length > 1 %}
+                        <p>{{nov|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}                    
+                </div>
+                <!-- candidate 2 - presidental candidate -->
+                <div class="row">
+                    {% for vo2 in nov2[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo2.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo2.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo2.contobj.cont_name}}</p>
+                        <p>{{vo2.vt_category}}</p>
+                        <p>{{vo2.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov2|length > 1 %}
+                        <p>{{nov2|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov2|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 3 - presidental candidate -->
+                <div class="row">
+                    {% for vo2i in nov2i[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo2i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo2i.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo2i.contobj.cont_name}}</p>
+                        <p>{{vo2i.vt_category}}</p>
+                        <p>{{vo2i.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov2i|length > 1 %}
+                        <p>{{nov2i|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov2i|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <!-- vice president result -->
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> Vice Presidential Results</h3></div>
+                    <!-- candidate 1 - vice presidental candidate -->
+                    <div class="row mb-3">
+                        {% for vo3 in nov3[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo3.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo3.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo3.contobj.cont_name}}</p>
+                            <p>{{vo3.vt_category}}</p>
+                            <p>{{vo3.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov3|length > 1 %}
+                            <p>{{nov3|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov3|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - vice presidental candidate -->
+                    <div class="row">
+                        {% for vo3i in nov3i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo3i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo3i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo3i.contobj.cont_name}}</p>
+                            <p>{{vo3i.vt_category}}</p>
+                            <p>{{vo3i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov3i|length > 1 %}
+                            <p>{{nov3i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov3i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - vice presidental candidate -->
+                    <div class="row">
+                        {% for vo3i1 in nov3i1[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo3i1.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo3i1.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo3i1.contobj.cont_name}}</p>
+                            <p>{{vo3i1.vt_category}}</p>
+                            <p>{{vo3i1.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov3i1|length > 1 %}
+                            <p>{{nov3i1|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov3i1|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- VP Special Duties Results -->
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-success text-light rounded-pill"> Vice President (Special Duties) Results</h3></div>
+                    <!-- candidate 1 - vice presidental special duties candidate -->
+                    <div class="row mb-3">
+                        {% for vo4 in nov4[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo4.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo4.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo4.contobj.cont_name}}</p>
+                            <p>{{vo4.vt_category}}</p>
+                            <p>{{vo4.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov4|length > 1 %}
+                            <p>{{nov4|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov4|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - vice presidental special duties candidate -->
+                    <div class="row">
+                        {% for vo4i in nov4i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo4i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo4i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo4i.contobj.cont_name}}</p>
+                            <p>{{vo4i.vt_category}}</p>
+                            <p>{{vo4i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov4i|length > 1 %}
+                            <p>{{nov4i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov4i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - vice presidental special duties candidate -->
+                    <div class="row">
+                        {% for vo4ii in nov4ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo4ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo4ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo4ii.contobj.cont_name}}</p>
+                            <p>{{vo4ii.vt_category}}</p>
+                            <p>{{vo4ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov4ii|length > 1 %}
+                            <p>{{nov4ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov4ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- General Secretary Results -->
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> General Secretary Results</h3></div>
+                    <!-- candidate 1 - general secretary candidate -->
+                    <div class="row mb-3">
+                        {% for vo5 in nov5[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo5.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo5.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo5.contobj.cont_name}}</p>
+                            <p>{{vo5.vt_category}}</p>
+                            <p>{{vo5.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov5|length > 1 %}
+                            <p>{{nov5|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov5|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 2 - General secretary candidate -->
+                    <div class="row">
+                        {% for vo5i in nov5i[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo5i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo5i.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo5i.contobj.cont_name}}</p>
+                            <p>{{vo5i.vt_category}}</p>
+                            <p>{{vo5i.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov5i|length > 1 %}
+                            <p>{{nov5i|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov5i|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- candidate 3 - General secretary candidate -->
+                    <div class="row">
+                        {% for vo5ii in nov5ii[0:1] %}
+                        <div class="col-md-3">
+                            <img src="/static/images/contestant/{{vo5ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo5ii.contobj.cont_name}}">
+                        </div>
+                        <div class="col-md-5">
+                            <p>{{vo5ii.contobj.cont_name}}</p>
+                            <p>{{vo5ii.vt_category}}</p>
+                            <p>{{vo5ii.contobj.cont_studycenter}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-size:small">Numbers of Vote</span>
+                            {% if nov5ii|length > 1 %}
+                            <p>{{nov5ii|length}} Votes</p>
+                            {% else %}
+                            <p>{{nov5ii|length}} Vote</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Developers Lead Results -->
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> Developers Lead Results</h3></div>
+                <!-- candidate 1 - Developers Lead candidate -->
+                <div class="row mb-3">
+                    {% for vo10 in nov10[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo10.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo10.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo10.contobj.cont_name}}</p>
+                        <p>{{vo10.vt_category}}</p>                                                   
+                        <p>{{vo10.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov10|length > 1 %}
+                        <p>{{nov10|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov10|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 2 - developers lead candidate -->
+                <div class="row">
+                    {% for vo10i in nov10i[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo10i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo10i.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo10i.contobj.cont_name}}</p>                        
+                        <p>{{vo10i.vt_category}}</p>                           
+                        <p>{{vo10i.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov10i|length > 1 %}
+                        <p>{{nov10i|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov10i|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 3 - developer lead candidate -->
+                <div class="row">
+                    {% for vo10ii in nov10ii[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo10ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo10ii.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo10ii.contobj.cont_name}}</p>                        
+                        <p>{{vo10ii.vt_category}}</p>                                                    
+                        <p>{{vo10ii.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov10ii|length > 1 %}
+                        <p>{{nov10ii|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov10ii|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Welfare Director Results -->
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-success text-light rounded-pill"> Welfare Director Results</h3></div>
+                <!-- candidate 1 - Welfare Director candidate -->
+                <div class="row mb-3">
+                    {% for vo11 in nov11[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo11.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo11.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo11.contobj.cont_name}}</p>
+                        <p>{{vo11.vt_category}}</p>                                                   
+                        <p>{{vo11.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov11|length > 1 %}
+                        <p>{{nov11|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov11|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 2 - Welfare director candidate -->
+                <div class="row">
+                    {% for vo11i in nov11i[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo11i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo11i.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo11i.contobj.cont_name}}</p>                        
+                        <p>{{vo11i.vt_category}}</p>                           
+                        <p>{{vo11i.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov11i|length > 1 %}
+                        <p>{{nov11i|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov11i|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 3 - Welfare director candidate -->
+                <div class="row">
+                    {% for vo11ii in nov11ii[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo11ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo11ii.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo11ii.contobj.cont_name}}</p>                        
+                        <p>{{vo11ii.vt_category}}</p>                                                    
+                        <p>{{vo11ii.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov11ii|length > 1 %}
+                        <p>{{nov11ii|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov11ii|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Social Director Results -->
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-dark text-light rounded-pill"> Social Director Results</h3></div>
+                <!-- candidate 1 - social director candidate -->
+                <div class="row mb-3">
+                    {% for vo12 in nov12[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo12.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo12.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo12.contobj.cont_name}}</p>
+                        <p>{{vo12.vt_category}}</p>                                                   
+                        <p>{{vo12.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov12|length > 1 %}
+                        <p>{{nov12|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov12|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 2 -social director candidate -->
+                <div class="row">
+                    {% for vo12i in nov12i[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo12i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo12i.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo12i.contobj.cont_name}}</p>                        
+                        <p>{{vo12i.vt_category}}</p>                           
+                        <p>{{vo12i.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov12i|length > 1 %}
+                        <p>{{nov12i|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov12i|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 3 - social director candidate -->
+                <div class="row">
+                    {% for vo12ii in nov12ii[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo12ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo12ii.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo12ii.contobj.cont_name}}</p>                        
+                        <p>{{vo12ii.vt_category}}</p>                                                    
+                        <p>{{vo12ii.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov12ii|length > 1 %}
+                        <p>{{nov12ii|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov12ii|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Sport Director Results -->
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-3 text-center"><h3 class="text-center bg-success text-light rounded-pill"> Sport Director Results</h3></div>
+                <!-- candidate 1 - sport director candidate -->
+                <div class="row mb-3">
+                    {% for vo13 in nov13[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo13.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo13.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo13.contobj.cont_name}}</p>
+                        <p>{{vo13.vt_category}}</p>                                                   
+                        <p>{{vo13.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov13|length > 1 %}
+                        <p>{{nov13|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov13|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 2 -sport director candidate -->
+                <div class="row">
+                    {% for vo13i in nov13i[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo13i.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo13i.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo13i.contobj.cont_name}}</p>                        
+                        <p>{{vo13i.vt_category}}</p>                           
+                        <p>{{vo13i.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov13i|length > 1 %}
+                        <p>{{nov13i|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov13i|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- candidate 3 - social director candidate -->
+                <div class="row">
+                    {% for vo13ii in nov13ii[0:1] %}
+                    <div class="col-md-3">
+                        <img src="/static/images/contestant/{{vo13ii.contobj.cont_pic}}" class="img-fluid rounded" alt="{{vo13ii.contobj.cont_name}}">
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{vo13ii.contobj.cont_name}}</p>                        
+                        <p>{{vo13ii.vt_category}}</p>                                                    
+                        <p>{{vo13ii.contobj.cont_studycenter}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-size:small">Numbers of Vote</span>
+                        {% if nov13ii|length > 1 %}
+                        <p>{{nov13ii|length}} Votes</p>
+                        {% else %}
+                        <p>{{nov13ii|length}} Vote</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

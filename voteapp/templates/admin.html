@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin | NACOS NOUN
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12">
+                {% with m = get_flashed_messages() %}
+                    {% for i in m %}
+                        <p class="fw-4 text-center">{{i}}</p>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 mt-3 mb-3">
+            <h5 class="text-center">Admin Login Page</h5>
+            <form action="{{url_for('adminlogin')}}" method="POST">
+                <input type="hidden" name="csrf_token" class="form-control mt-3 mb-3" value="{{csrf_token()}}">
+                <input type="email" class="form-control mt-3 mb-3" name="email" placeholder="jude@gmail.com">
+                <input type="password" class="form-control mt-3 mb-3" name="pwd" placeholder="password">
+                <button type="submit" class="form-control mt-3 mb-3 btn btn-success">Login</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}
