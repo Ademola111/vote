@@ -65,9 +65,9 @@ def voting():
                         nov3 = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==1).all()
                         nov3i = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==2).all()
                         nov3i1 = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==3).all()
-                        nov4 = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==1).all()
-                        nov4i = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==2).all()
-                        nov4ii = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==3).all()
+                        # nov4 = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==1).all()
+                        # nov4i = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==2).all()
+                        # nov4ii = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==3).all()
                         nov5 = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==1).all()
                         nov5i = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==2).all()
                         nov5ii = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==3).all()
@@ -96,14 +96,14 @@ def voting():
                         nov13i = db.session.query(Vote).filter(Vote.vt_category=='sport director',Vote.vt_contestantid==2).all()
                         nov13ii = db.session.query(Vote).filter(Vote.vt_category=='sport director',Vote.vt_contestantid==3).all()
                         flash('Thank you for exercising your civic responsibilities. Note! You can only vote once.')
-                        return render_template('voted.html', logid=logid, nov=nov, nov2=nov2, nov2i=nov2i, nov3=nov3, nov3i=nov3i, nov3i1=nov3i1, nov4=nov4, nov4i=nov4i, nov4ii=nov4ii, nov5=nov5, nov5i=nov5i, nov5ii=nov5ii, nov6=nov6, nov6i=nov6i, nov6ii=nov6ii, nov7=nov7, nov7i=nov7i, nov7ii=nov7ii, nov8=nov8, nov8i=nov8i, nov8ii=nov8ii, nov9=nov9, nov9i=nov9i, nov9ii=nov9ii, nov10=nov10, nov10i=nov10i, nov10ii=nov10ii, nov11=nov11, nov11i=nov11i, nov11ii=nov11ii, nov12=nov12, nov12i=nov12i, nov12ii=nov12ii, nov13=nov13, nov13i=nov13i, nov13ii=nov13ii)
+                        return render_template('voted.html', logid=logid, nov=nov, nov2=nov2, nov2i=nov2i, nov3=nov3, nov3i=nov3i, nov3i1=nov3i1, nov5=nov5, nov5i=nov5i, nov5ii=nov5ii, nov6=nov6, nov6i=nov6i, nov6ii=nov6ii, nov7=nov7, nov7i=nov7i, nov7ii=nov7ii, nov8=nov8, nov8i=nov8i, nov8ii=nov8ii, nov9=nov9, nov9i=nov9i, nov9ii=nov9ii, nov10=nov10, nov10i=nov10i, nov10ii=nov10ii, nov11=nov11, nov11i=nov11i, nov11ii=nov11ii, nov12=nov12, nov12i=nov12i, nov12ii=nov12ii, nov13=nov13, nov13i=nov13i, nov13ii=nov13ii)
                     
              
     if request.method=='POST':
         getform=request.form
         post1=getform.get('post1')
         post2=getform.get('post2')
-        post3=getform.get('post3')
+        # post3=getform.get('post3')
         post4=getform.get('post4')
         post5=getform.get('post5')
         post6=getform.get('post6')
@@ -115,7 +115,7 @@ def voting():
         post12=getform.get('post12')
         votecat1=getform.get('votecat1')
         votecat2=getform.get('votecat2')
-        votecat3=getform.get('votecat3')
+        # votecat3=getform.get('votecat3')
         votecat4=getform.get('votecat4')
         votecat5=getform.get('votecat5')
         votecat6=getform.get('votecat6')
@@ -130,16 +130,16 @@ def voting():
         if logid !="":
             nacid = db.session.query(Vote).filter(Vote.vt_nacosid==logid).first()
             if nacid == None:
-                if post1 !="" or post2 !="" or post3 !="" or post4 !="" or post5 !="" or post6 !="" or post7 !="" or post8 !="" or post9 !="" or post10 !="" or post11!=""or post12 !=""  or votecat1 !="" or votecat2 !="" or votecat3 !="" or votecat4 !="" or votecat5 !="" or votecat6 !="" or votecat7 !="" or votecat8 !="" or votecat9 !="" or votecat10 !="" or votecat11 !="" or votecat12 !="":
+                if post1 !="" or post2 !="" or post4 !="" or post5 !="" or post6 !="" or post7 !="" or post8 !="" or post9 !="" or post10 !="" or post11!=""or post12 !=""  or votecat1 !="" or votecat2 !="" or votecat4 !="" or votecat5 !="" or votecat6 !="" or votecat7 !="" or votecat8 !="" or votecat9 !="" or votecat10 !="" or votecat11 !="" or votecat12 !="":
                     vo1=Vote(vt_category=post1, vt_contestantid=votecat1, vt_nacosid=logid, vt_nacosidid=vtnaid.na_id)
                     db.session.add(vo1)
                     db.session.commit()
                     vo2=Vote(vt_category=post2, vt_contestantid=votecat2, vt_nacosid=logid, vt_nacosidid=vtnaid.na_id)
                     db.session.add(vo2)
                     db.session.commit()
-                    vo3=Vote(vt_category=post3, vt_contestantid=votecat3, vt_nacosid=logid, vt_nacosidid=vtnaid.na_id)
-                    db.session.add(vo3)
-                    db.session.commit()
+                    # vo3=Vote(vt_category=post3, vt_contestantid=votecat3, vt_nacosid=logid, vt_nacosidid=vtnaid.na_id)
+                    # db.session.add(vo3)
+                    # db.session.commit()
                     vo4=Vote(vt_category=post4, vt_contestantid=votecat4, vt_nacosid=logid, vt_nacosidid=vtnaid.na_id)
                     db.session.add(vo4)
                     db.session.commit()
@@ -193,9 +193,9 @@ def voted():
             nov3 = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==1).all()
             nov3i = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==2).all()
             nov3i1 = db.session.query(Vote).filter(Vote.vt_category=='vice president',Vote.vt_contestantid==3).all()
-            nov4 = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==1).all()
-            nov4i = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==2).all()
-            nov4ii = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==3).all()
+            # nov4 = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==1).all()
+            # nov4i = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==2).all()
+            # nov4ii = db.session.query(Vote).filter(Vote.vt_category=='vice president special duties',Vote.vt_contestantid==3).all()
             nov5 = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==1).all()
             nov5i = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==2).all()
             nov5ii = db.session.query(Vote).filter(Vote.vt_category=='general secretary',Vote.vt_contestantid==3).all()
@@ -225,7 +225,7 @@ def voted():
             nov13ii = db.session.query(Vote).filter(Vote.vt_category=='sport director',Vote.vt_contestantid==3).all()
             session.pop('nacosid', None)
             flash(f'Thank you {logid} for exercising your Civic Right.')
-            return render_template('voted.html', logid=logid, nov=nov, nov2=nov2, nov2i=nov2i, nov3=nov3, nov3i=nov3i, nov3i1=nov3i1, nov4=nov4, nov4i=nov4i, nov4ii=nov4ii, nov5=nov5, nov5i=nov5i, nov5ii=nov5ii, nov6=nov6, nov6i=nov6i, nov6ii=nov6ii, nov7=nov7, nov7i=nov7i, nov7ii=nov7ii, nov8=nov8, nov8i=nov8i, nov8ii=nov8ii, nov9=nov9, nov9i=nov9i, nov9ii=nov9ii, nov10=nov10, nov10i=nov10i, nov10ii=nov10ii, nov11=nov11, nov11i=nov11i, nov11ii=nov11ii, nov12=nov12, nov12i=nov12i, nov12ii=nov12ii, nov13=nov13, nov13i=nov13i, nov13ii=nov13ii)
+            return render_template('voted.html', logid=logid, nov=nov, nov2=nov2, nov2i=nov2i, nov3=nov3, nov3i=nov3i, nov3i1=nov3i1, nov5=nov5, nov5i=nov5i, nov5ii=nov5ii, nov6=nov6, nov6i=nov6i, nov6ii=nov6ii, nov7=nov7, nov7i=nov7i, nov7ii=nov7ii, nov8=nov8, nov8i=nov8i, nov8ii=nov8ii, nov9=nov9, nov9i=nov9i, nov9ii=nov9ii, nov10=nov10, nov10i=nov10i, nov10ii=nov10ii, nov11=nov11, nov11i=nov11i, nov11ii=nov11ii, nov12=nov12, nov12i=nov12i, nov12ii=nov12ii, nov13=nov13, nov13i=nov13i, nov13ii=nov13ii)
         else:
             flash('login to view result.')
             return redirect('/')
@@ -369,3 +369,35 @@ def page_not_found(error):
     # adm=Admin.query.get(admin)
     # nac=Nacosid.query.get(logid)
     return render_template('error.html',  error=error),404
+
+
+"""homepage"""
+@app.route('/confirmid', methods=['GET', 'POST'])
+def confirmid():
+    logid=session.get('nacosid')
+    if request.method=='GET':
+        if logid==None:
+            return redirect('/')
+    
+    if request.method=='POST':
+        nactid = request.form.get('nacosid')
+        print(nactid)
+        if nactid =="":
+            flash('Please enter a valid ID')
+            return redirect('/')
+        else:
+            # checking database for confirmation
+            if nactid !="":
+                nacid = db.session.query(Nacosid).filter(Nacosid.na_nacosid==nactid).first()
+                if nacid ==None:
+                    flash(f"Your NACOS ID {nactid} is not available kindly contact the National PRO with your details")
+                    return redirect('/')
+                else:
+                    naid = nacid.na_nacosid                    
+                    if naid and naid == nactid:
+                        session['nacosid']=nacid.na_nacosid
+                        flash(f'Your ID {nacid.na_nacosid} from {nacid.na_studycenter} is available.')
+                        return redirect('/')
+            else:
+                flash("Your NACOS ID {nactid} is not available kindly contact the National PRO with your details")
+                return redirect('/')

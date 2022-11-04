@@ -10,7 +10,7 @@
     <div class="col-md-12">
       {% with m = get_flashed_messages() %}
 				{% for i in m %}
-				<p class="fw-4">{{i}}</p>
+				<p class="fw-4 text-center">{{i}}</p>
 				{% endfor %}
 				{% endwith %}
     </div>
@@ -63,7 +63,7 @@
             <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
           </div>
         </div>
-      {% elif pre.cont_post=='vp special duties' %}
+      {#{% elif pre.cont_post=='vp special duties' %}
         <div class="row">
           <div class="col-md-3 mt-3">
             <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
@@ -84,7 +84,7 @@
             {% endif %}
             <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
           </div>
-        </div>
+        </div>#}
       {% elif pre.cont_post=='gen sec' %}
         <div class="row">
           <div class="col-md-3 mt-3">
@@ -173,18 +173,139 @@
             <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
           </div>
         </div>
+        {% elif pre.cont_post=='software director r&i' %}
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
+          </div>
+          <div class="col-md-9 mt-3">
+            <span>Name: </span><span> {{pre.cont_name}}</span><br>
+            {#<span>NACOS ID: </span><span> {{pre.na_nacosid}}</span><br>#}
+            <span>Level: </span><span> {{pre.na_nacoslevel}}</span><br>
+            <span>Study Center: </span><span> {{pre.cont_studycenter}}</span><br>
+            {% if pre.cont_department == 'cs' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'cse' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'csm' %}
+            <span>Department: </span><span> Computer Science / Mathematics</span><br>
+            {% elif pre.cont_department == 'it' %}
+            <span>Department: </span><span> Information Technology</span><br>
+            {% endif %}
+            <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
+          </div>
+        </div>
+        {% elif pre.cont_post=='developers lead' %}
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
+          </div>
+          <div class="col-md-9 mt-3">
+            <span>Name: </span><span> {{pre.cont_name}}</span><br>
+            {#<span>NACOS ID: </span><span> {{pre.na_nacosid}}</span><br>#}
+            <span>Level: </span><span> {{pre.na_nacoslevel}}</span><br>
+            <span>Study Center: </span><span> {{pre.cont_studycenter}}</span><br>
+            {% if pre.cont_department == 'cs' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'cse' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'csm' %}
+            <span>Department: </span><span> Computer Science / Mathematics</span><br>
+            {% elif pre.cont_department == 'it' %}
+            <span>Department: </span><span> Information Technology</span><br>
+            {% endif %}
+            <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
+          </div>
+        </div>
+        {% elif pre.cont_post=='welfare director' %}
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
+          </div>
+          <div class="col-md-9 mt-3">
+            <span>Name: </span><span> {{pre.cont_name}}</span><br>
+            {#<span>NACOS ID: </span><span> {{pre.na_nacosid}}</span><br>#}
+            <span>Level: </span><span> {{pre.na_nacoslevel}}</span><br>
+            <span>Study Center: </span><span> {{pre.cont_studycenter}}</span><br>
+            {% if pre.cont_department == 'cs' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'cse' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'csm' %}
+            <span>Department: </span><span> Computer Science / Mathematics</span><br>
+            {% elif pre.cont_department == 'it' %}
+            <span>Department: </span><span> Information Technology</span><br>
+            {% endif %}
+            <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
+          </div>
+        </div>
+        {% elif pre.cont_post=='social director' %}
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
+          </div>
+          <div class="col-md-9 mt-3">
+            <span>Name: </span><span> {{pre.cont_name}}</span><br>
+            {#<span>NACOS ID: </span><span> {{pre.na_nacosid}}</span><br>#}
+            <span>Level: </span><span> {{pre.na_nacoslevel}}</span><br>
+            <span>Study Center: </span><span> {{pre.cont_studycenter}}</span><br>
+            {% if pre.cont_department == 'cs' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'cse' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'csm' %}
+            <span>Department: </span><span> Computer Science / Mathematics</span><br>
+            {% elif pre.cont_department == 'it' %}
+            <span>Department: </span><span> Information Technology</span><br>
+            {% endif %}
+            <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
+          </div>
+        </div>
+        {% elif pre.cont_post=='sport director' %}
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <img src="static/images/contestant/{{pre.cont_pic}}" alt="{{pre.cont_name}}" class="img-fluid">
+          </div>
+          <div class="col-md-9 mt-3">
+            <span>Name: </span><span> {{pre.cont_name}}</span><br>
+            {#<span>NACOS ID: </span><span> {{pre.na_nacosid}}</span><br>#}
+            <span>Level: </span><span> {{pre.na_nacoslevel}}</span><br>
+            <span>Study Center: </span><span> {{pre.cont_studycenter}}</span><br>
+            {% if pre.cont_department == 'cs' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'cse' %}
+            <span>Department: </span><span> Computer Science</span><br>
+            {% elif pre.cont_department == 'csm' %}
+            <span>Department: </span><span> Computer Science / Mathematics</span><br>
+            {% elif pre.cont_department == 'it' %}
+            <span>Department: </span><span> Information Technology</span><br>
+            {% endif %}
+            <span>Aspiring for: </span><span> {{pre.cont_post|upper}}</span>
+          </div>
+        </div>
       {% endif %}
       {% endfor %}
       </div>
       
     </div>
+    
     <div class="col-md-4 mt-3 mb-3mt-3 mb-3">
-      <h4>Kindly Login with your Nacos Noun ID</h4>
+      <div class="col-md-12 mt-3 mb-3 mt-3 mb-5">
+        <h4>Confirm your Nacos Noun ID status</h4>
+        <form action="{{url_for('confirmid')}}" method="POST">
+          <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+          <input type="text" name="nacosid" class="form-control mt-3 mb-3" placeholder="NACOS ID" required>
+          <button type="submit" class="form-control btn btn-outline-success mt-3 mb-3" >Check Status</button>
+        </form>
+      </div>
+      {#<div class="col-md-12 mt-3 mb-3 mt-3 mb-3">
+      <h4>Kindly Login with your Nacos Noun ID </h4>
       <form action="{{url_for('home')}}" method="POST">
         <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
         <input type="text" name="nacosid" class="form-control mt-3 mb-3" placeholder="NACOS ID" required>
         <button type="submit" class="form-control btn btn-outline-success mt-3 mb-3" disabled>Login</button>
       </form>
+      </div>#}
     </div>
     <div class="col-md-4 mt-3 mb-3 text-center">
       <h5>Contestant Register Here</h5>
